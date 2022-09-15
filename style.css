@@ -21,14 +21,35 @@ body * {
     line-height: 160%;
 }
 
-main * {
-    /* border: 1px solid red; */
+header {
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+
+header div{
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    
+    border-radius: 50%;
+    display: flex;
+    padding: 4px;
+    transition: transform .3s;
+}
+
+header div:hover{
+    transform: scale(1.1);
+}
+
+header img {
+    width: 100%;
+    border-radius: 50%;
 }
 
 main{
     max-width: 580px;
     width: 90%;
-    margin: auto;
+    margin: 32px auto;
 
     display: grid;
     gap: 24px;
@@ -67,6 +88,14 @@ section ul{
 
 }
 
+section ul li{
+    transition: transform 0.3s;
+}
+
+section ul li:hover{
+    transform: scale(1.1)
+}
+
 .games-list img {
     width: 90px;
     border-radius: 8px;
@@ -76,4 +105,48 @@ section ul{
     border-radius: 50%;
     width: 70px;
     border: 1px solid #443E54;
+}
+
+/* animation */
+
+header div{
+    animation: fromTop .5s .2s backwards;
+}
+
+main section{
+    animation: fromBottom .5s .2s backwards;
+}
+
+main section:nth-child(1){
+    animation-delay: 0s;
+
+}
+
+main section:nth-child(2){
+    animation-delay: .2s;
+}
+
+main section:nth-child(3){
+    animation-delay: .4s;
+}
+
+
+@keyframes fromTop{
+    from{
+        transform: translateY(-70px)
+    }
+
+    to{
+        transform: translateY(6)
+    }
+}
+
+@keyframes fromBottom{
+    from{
+        transform: translateX(80px)
+    }
+
+    to{
+        transform: translateY(0)
+    }
 }
